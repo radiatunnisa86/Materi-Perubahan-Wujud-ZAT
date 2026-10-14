@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petualangan Wujud Zat | MPI IPAS Kelas IV</title>
+<style>
+:root{--navy:#17345c;--blue:#2776c9;--sky:#eaf5ff;--mint:#e6f8ef;--yellow:#fff2c9;--pink:#ffedf0;--ink:#1c2b3a;--muted:#5e7185;--white:#fff;--line:#d7e4ef;--green:#218653;--red:#b93a4a}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(135deg,#e8f5ff,#f5fbff 45%,#eefaf2);min-height:100vh}
+button{font:inherit;cursor:pointer;border:0;border-radius:14px;padding:12px 17px;font-weight:750;transition:transform .12s,filter .12s}button:hover{filter:brightness(.97);transform:translateY(-1px)}button:focus-visible,[tabindex]:focus-visible{outline:3px solid #ffb72e;outline-offset:3px}
+.primary{background:var(--blue);color:white}.secondary{background:#e8f2fc;color:var(--navy);border:1px solid #c7ddef}.green{background:#dff5e8;color:#155c37}.yellow{background:#ffedb5;color:#704b00}.danger{background:#ffe2e5;color:#8c2433}
+header{max-width:1100px;margin:auto;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;color:var(--navy)}.brand-icon{font-size:30px;background:white;border-radius:14px;padding:6px 10px;box-shadow:0 4px 15px #17345c12}.top-actions{display:flex;gap:8px;flex-wrap:wrap}.smallbtn{padding:9px 12px;font-size:14px}
+main{max-width:1100px;margin:0 auto;padding:10px 20px 38px}.screen{display:none;animation:fade .2s ease}.screen.active{display:block}@keyframes fade{from{opacity:.3;transform:translateY(5px)}to{opacity:1;transform:none}}
+.panel{background:white;border:1px solid var(--line);border-radius:26px;padding:clamp(20px,4vw,42px);box-shadow:0 12px 35px #23496c0c}
+.hero{text-align:center;overflow:hidden;position:relative;background:linear-gradient(145deg,#fff,#e8f5ff)}.eyebrow{color:var(--blue);font-weight:850;text-transform:uppercase;letter-spacing:.09em;font-size:13px}.hero-art{display:flex;justify-content:center;align-items:center;gap:clamp(8px,3vw,26px);font-size:clamp(45px,9vw,88px);margin:20px 0}.bubble{background:white;border:1px solid #dcecf9;border-radius:24px;padding:10px 14px;box-shadow:0 8px 22px #2c73ac12}.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.08;color:var(--navy);margin:12px 0}.hero p{max-width:650px;margin:0 auto 24px;color:var(--muted);font-size:18px;line-height:1.6}
+h2{color:var(--navy);font-size:clamp(25px,3vw,34px);margin:0 0 8px}h3{color:var(--navy);margin:0 0 8px}.sub{color:var(--muted);margin:0 0 22px;line-height:1.6}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.menu-card{min-height:170px;text-align:left;padding:22px;background:white;border:1px solid var(--line);border-radius:22px;display:flex;flex-direction:column;gap:8px;box-shadow:0 6px 18px #17345c08}.menu-card .emoji{font-size:38px}.menu-card strong{font-size:21px;color:var(--navy)}.menu-card span:last-child{color:var(--muted);line-height:1.45}.info{background:var(--sky);border-radius:18px;padding:16px;line-height:1.6}.note{font-size:14px;color:var(--muted);line-height:1.55}.backrow{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.state-card{padding:18px;border-radius:18px;text-align:center;border:1px solid var(--line);background:#fff}.state-card .emoji{font-size:48px}.state-card p{margin:5px 0;color:var(--muted)}.lesson-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.lesson{border:1px solid var(--line);border-radius:17px;padding:16px;background:white;text-align:left;display:flex;gap:12px;align-items:center}.lesson .emoji{font-size:34px}.lesson small{display:block;color:var(--muted);margin-top:3px;line-height:1.4}
+.sim-layout{display:grid;grid-template-columns:1.05fr 1fr;gap:20px}.event-list,.term-list{display:grid;gap:10px}.event-card{background:#fff;border:2px solid var(--line);border-radius:17px;padding:14px;display:flex;align-items:center;gap:12px;text-align:left;min-height:78px}.event-card.selected{border-color:var(--blue);background:#eef7ff}.event-card .emoji{font-size:34px}.event-card small{display:block;color:var(--muted);margin-top:3px}.term{background:#f2f8fd;border:2px solid #d4e6f5;border-radius:15px;padding:13px;text-align:center;color:var(--navy);font-weight:800}.term.selected{background:#dbeeff;border-color:var(--blue)}.term.used{opacity:.5}.dropzone{border:2px dashed #b9d3e7;border-radius:17px;padding:14px;min-height:58px;color:var(--muted);margin-top:8px;background:#fbfdff}.dropzone.filled{border-style:solid;background:#edf7ff;color:var(--navy);font-weight:750}.feedback{margin-top:16px;padding:14px;border-radius:15px;display:none;line-height:1.5}.feedback.show{display:block}.feedback.good{background:#e4f8eb;color:#155c37}.feedback.try{background:#fff3d6;color:#745100}
+.question-image{font-size:68px;text-align:center;background:linear-gradient(135deg,#e8f5ff,#f0fbf5);border-radius:20px;padding:18px;margin:12px 0}.option{width:100%;text-align:left;background:white;border:2px solid var(--line);margin:6px 0;color:var(--ink)}.option.selected{border-color:var(--blue);background:#eaf5ff}.option.correct{border-color:var(--green);background:#e5f8ed}.option.wrong{border-color:var(--red);background:#fff0f1}.progress{height:9px;background:#e4edf5;border-radius:99px;overflow:hidden;margin:10px 0 20px}.progress span{display:block;height:100%;background:var(--blue);width:0;transition:width .2s}.result-score{font-size:64px;font-weight:900;color:var(--blue);line-height:1.1}.center{text-align:center}.footer{text-align:center;color:var(--muted);font-size:13px;margin:24px 0 0}.profile-grid{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:start}.profile-icon{font-size:75px;background:var(--sky);border-radius:22px;padding:22px;text-align:center}
+@media(max-width:720px){header{align-items:flex-start;flex-direction:column}.grid,.grid3,.lesson-list,.sim-layout{grid-template-columns:1fr}.menu-card{min-height:130px}.profile-grid{grid-template-columns:1fr}.profile-icon{width:max-content}.panel{border-radius:20px;padding:20px}.hero p{font-size:16px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><span class="brand-icon">🧊</span><span>MPI IPAS · Petualangan Wujud Zat</span></div>
+  <div class="top-actions">
+    <button class="secondary smallbtn" id="soundBtn" aria-pressed="false" title="Aktifkan atau nonaktifkan suara">🔈 Suara: Mati</button>
+    <button class="secondary smallbtn" onclick="go('home')">⌂ Beranda</button>
+  </div>
+</header>
+<main>
+<section class="screen active" id="splash">
+ <div class="panel hero">
+  <div class="eyebrow">Media Pembelajaran Interaktif · IPAS Kelas IV</div>
+  <div class="hero-art"><span class="bubble">🧊</span><span>➡️</span><span class="bubble">💧</span><span>➡️</span><span class="bubble">☁️</span></div>
+  <h1>Petualangan<br>Wujud Zat</h1>
+  <p>Halo, Penjelajah Sains! Ayo mengenal perubahan wujud zat melalui materi, simulasi, dan kuis seru.</p>
+  <button class="primary" style="font-size:18px;padding:15px 28px" onclick="go('home')">🚀 Mulai Belajar</button>
+  <p class="note" style="margin-top:22px">SD Negeri 5 Pakue Utara · Kurikulum Merdeka · Fase B</p>
+ </div>
+</section>
+
+<section class="screen" id="home">
+ <div class="panel">
+  <div class="eyebrow">Menu utama</div><h2>Pilih Petualanganmu!</h2><p class="sub">Kamu bisa membuka menu sesuai kebutuhan. Mulailah dari Materi jika ini pertama kalinya kamu belajar.</p>
+  <div class="grid">
+   <button class="menu-card" onclick="go('materi')"><span class="emoji">📘</span><strong>Materi</strong><span>Kenali wujud zat dan enam jenis perubahannya.</span></button>
+   <button class="menu-card" onclick="startSimulation()"><span class="emoji">🧩</span><strong>Simulasi</strong><span>Pasangkan peristiwa sehari-hari dengan perubahan wujudnya.</span></button>
+   <button class="menu-card" onclick="startQuiz()"><span class="emoji">🎯</span><strong>Kuis Interaktif</strong><span>Jawab tiga soal dan lihat hasil belajarmu.</span></button>
+   <button class="menu-card" onclick="go('profil')"><span class="emoji">👩‍🔬</span><strong>Profil & Petunjuk</strong><span>Identitas media dan cara menggunakannya.</span></button>
+  </div>
+ </div>
+</section>
+
+<section class="screen" id="materi">
+ <div class="backrow"><button class="secondary" onclick="go('home')">← Menu utama</button><span class="eyebrow">Layar 3 · Materi</span></div>
+ <div class="panel">
+  <h2>Mengenal Perubahan Wujud Zat</h2><p class="sub">Zat dapat berwujud padat, cair, atau gas. Perubahan wujud terjadi ketika zat menerima atau melepaskan energi panas.</p>
+  <div class="grid3">
+   <div class="state-card"><div class="emoji">🧊</div><h3>Padat</h3><p>Bentuk dan volumenya tetap.</p></div>
+   <div class="state-card"><div class="emoji">💧</div><h3>Cair</h3><p>Volumenya tetap, bentuk mengikuti wadah.</p></div>
+   <div class="state-card"><div class="emoji">☁️</div><h3>Gas</h3><p>Menyebar memenuhi ruang yang tersedia.</p></div>
+  </div>
+  <div class="info" style="margin-top:18px"><strong>Ingat!</strong> Pemanasan sering menyebabkan zat mencair atau menguap. Pendinginan dapat menyebabkan zat membeku atau mengembun. Perubahan wujud lainnya adalah menyublim dan mengkristal (deposisi).</div>
+  <h3 style="margin-top:24px">Enam perubahan wujud</h3>
+  <div class="lesson-list">
+   <button class="lesson" onclick="explain('Mencair','🧊 ➜ 💧','Padat menjadi cair. Contoh: es batu menerima panas lalu menjadi air.')"><span class="emoji">🧊</span><span><strong>Mencair</strong><small>Padat → cair · Es menjadi air</small></span></button>
+   <button class="lesson" onclick="explain('Membeku','💧 ➜ 🧊','Cair menjadi padat. Contoh: air di dalam freezer menjadi es.')"><span class="emoji">❄️</span><span><strong>Membeku</strong><small>Cair → padat · Air menjadi es</small></span></button>
+   <button class="lesson" onclick="explain('Menguap','💧 ➜ ☁️','Cair menjadi gas. Contoh: air pada pakaian yang dijemur menguap.')"><span class="emoji">☀️</span><span><strong>Menguap</strong><small>Cair → gas · Pakaian mengering</small></span></button>
+   <button class="lesson" onclick="explain('Mengembun','☁️ ➜ 💧','Gas menjadi cair. Contoh: uap air di udara menjadi titik air di luar gelas dingin.')"><span class="emoji">🥤</span><span><strong>Mengembun</strong><small>Gas → cair · Titik air pada gelas dingin</small></span></button>
+   <button class="lesson" onclick="explain('Menyublim','🧴 ➜ 💨','Padat menjadi gas tanpa melalui cair. Contoh: kapur barus lama-kelamaan mengecil.')"><span class="emoji">🧴</span><span><strong>Menyublim</strong><small>Padat → gas · Kapur barus mengecil</small></span></button>
+   <button class="lesson" onclick="explain('Mengkristal / deposisi','☁️ ➜ ❄️','Gas menjadi padat tanpa melalui cair. Contoh: kristal es dapat terbentuk dari uap air pada permukaan sangat dingin dalam kondisi sesuai.')"><span class="emoji">❄️</span><span><strong>Mengkristal / deposisi</strong><small>Gas → padat · Kristal es terbentuk</small></span></button>
+  </div>
+  <div class="feedback show" id="lessonFeedback" role="status"><strong>Pilih salah satu kartu</strong><br>Tekan kartu perubahan wujud untuk membaca penjelasan dan contohnya.</div>
+  <div class="backrow" style="margin-top:20px;margin-bottom:0"><span class="note">Sudah siap mencoba?</span><button class="primary" onclick="startSimulation()">Lanjut ke Simulasi →</button></div>
+ </div>
+</section>
+
+<section class="screen" id="simulasi">
+ <div class="backrow"><button class="secondary" onclick="go('home')">← Menu utama</button><span class="eyebrow">Layar 4 · Simulasi</span></div>
+ <div class="panel">
+  <h2>Ayo Pasangkan dengan Tepat!</h2><p class="sub">Pilih satu peristiwa di sebelah kiri, lalu pilih istilah perubahan wujud di sebelah kanan. Kamu juga dapat menyeret istilah ke kartu peristiwa pada komputer.</p>
+  <div class="sim-layout">
+   <div><h3>1. Pilih peristiwa</h3><div class="event-list" id="eventList"></div></div>
+   <div><h3>2. Pilih istilah perubahan</h3><div class="term-list" id="termList"></div><p class="note">Tip: pada layar sentuh, ketuk peristiwa lalu ketuk istilah.</p></div>
+  </div>
+  <div class="backrow" style="margin-top:18px;margin-bottom:0"><button class="secondary" onclick="startSimulation()">↻ Ulangi</button><button class="primary" onclick="checkSimulation()">Periksa Jawaban</button></div>
+  <div class="feedback" id="simFeedback" role="status"></div>
+  <div class="backrow" style="margin-top:16px;margin-bottom:0"><span class="note" id="simProgress">Pasangan benar: 0 dari 6</span><button class="green" onclick="startQuiz()">Lanjut ke Kuis →</button></div>
+ </div>
+</section>
+
+<section class="screen" id="kuis">
+ <div class="backrow"><button class="secondary" onclick="go('home')">← Menu utama</button><span class="eyebrow">Layar 5 · Kuis</span></div>
+ <div class="panel" id="quizPanel">
+  <div class="eyebrow" id="qCounter">Soal 1 dari 3</div><div class="progress"><span id="qProgress"></span></div>
+  <h2 id="qText">Pertanyaan</h2><div class="question-image" id="qImage">🧊</div>
+  <div id="options"></div>
+  <div class="feedback" id="qFeedback" role="status"></div>
+  <div class="backrow" style="margin-top:18px;margin-bottom:0"><span class="note" id="qHint">Pilih satu jawaban.</span><button class="primary" id="qAction" onclick="checkQuestion()">Periksa Jawaban</button></div>
+ </div>
+ <div class="panel center" id="resultPanel" style="display:none">
+  <div style="font-size:60px">🏆</div><h2>Kuis Selesai!</h2><p class="sub">Ini hasil latihanmu. Baca kembali penjelasan jika ada konsep yang perlu dipelajari.</p>
+  <div class="result-score" id="scoreText">100</div><p><strong id="scoreLabel">Skor kamu</strong></p>
+  <div class="info" id="resultMessage"></div>
+  <div class="backrow" style="justify-content:center;margin-top:22px"><button class="secondary" onclick="startQuiz()">↻ Ulangi Kuis</button><button class="primary" onclick="go('home')">Kembali ke Menu</button></div>
+ </div>
+</section>
+
+<section class="screen" id="profil">
+ <div class="backrow"><button class="secondary" onclick="go('home')">← Menu utama</button><span class="eyebrow">Profil & Petunjuk</span></div>
+ <div class="panel"><div class="profile-grid"><div class="profile-icon">🔬</div><div><h2>Profil Media</h2><p class="sub">Petualangan Wujud Zat adalah Media Pembelajaran Interaktif untuk mendukung pembelajaran IPAS sekolah dasar.</p><p><strong>Satuan Pendidikan:</strong> SD Negeri 5 Pakue Utara</p><p><strong>Mata Pelajaran:</strong> IPAS</p><p><strong>Kelas/Fase:</strong> IV / B</p><p><strong>Materi:</strong> Perubahan Wujud Zat</p><p><strong>Kurikulum:</strong> Merdeka</p></div></div>
+  <hr style="border:0;border-top:1px solid var(--line);margin:24px 0"><h3>Cara menggunakan MPI</h3><ol style="line-height:1.9"><li>Klik <strong>Mulai Belajar</strong> untuk membuka menu utama.</li><li>Buka Materi untuk mempelajari konsep dan contoh.</li><li>Buka Simulasi, pilih peristiwa lalu pasangkan istilah yang sesuai.</li><li>Buka Kuis, pilih jawaban dan tekan Periksa Jawaban.</li><li>Lihat skor akhir dan ulangi latihan jika diperlukan.</li></ol><div class="info"><strong>Untuk guru:</strong> gunakan MPI sebagai pendamping penjelasan dan diskusi. Untuk percobaan nyata, hindari air mendidih dan lakukan kegiatan dengan pengawasan orang dewasa.</div>
+ </div>
+</section>
+<p class="footer">MPI IPAS Kelas IV · SD Negeri 5 Pakue Utara · Dapat digunakan secara offline setelah file ini tersimpan di perangkat.</p>
+</main>
+<script>
+const screens=['splash','home','materi','simulasi','kuis','profil'];
+function go(id){screens.forEach(s=>document.getElementById(s).classList.toggle('active',s===id));window.scrollTo({top:0,behavior:'smooth'});if(id==='materi')document.getElementById('lessonFeedback').className='feedback show';}
+function speak(text){if(!soundOn||!('speechSynthesis'in window))return;window.speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang='id-ID';u.rate=.92;window.speechSynthesis.speak(u)}
+let soundOn=false;const soundBtn=document.getElementById('soundBtn');soundBtn.addEventListener('click',()=>{soundOn=!soundOn;soundBtn.textContent=soundOn?'🔊 Suara: Nyala':'🔈 Suara: Mati';soundBtn.setAttribute('aria-pressed',String(soundOn));if(!soundOn&&'speechSynthesis'in window)window.speechSynthesis.cancel();else speak('Suara narasi diaktifkan. Selamat belajar!')});
+function explain(title,visual,body){const f=document.getElementById('lessonFeedback');f.innerHTML='<strong>'+title+' · '+visual+'</strong><br>'+body;f.className='feedback show good';speak(title+'. '+body)}
+const events=[
+ {id:'mencair',emoji:'🧊',title:'Es batu menjadi air',desc:'Es dibiarkan di meja.',answer:'Mencair'},
+ {id:'membeku',emoji:'🧊',title:'Air menjadi es',desc:'Air diletakkan di freezer.',answer:'Membeku'},
+ {id:'menguap',emoji:'☀️',title:'Pakaian basah mengering',desc:'Pakaian dijemur di bawah matahari.',answer:'Menguap'},
+ {id:'mengembun',emoji:'🥤',title:'Titik air di luar gelas dingin',desc:'Gelas berisi es tampak basah di luar.',answer:'Mengembun'},
+ {id:'menyublim',emoji:'🧴',title:'Kapur barus mengecil',desc:'Kapur barus lama-lama habis.',answer:'Menyublim'},
+ {id:'mengkristal',emoji:'❄️',title:'Uap membentuk kristal es',desc:'Uap air menjadi padatan dalam kondisi sesuai.',answer:'Mengkristal'}
+];
+const terms=['Mencair','Membeku','Menguap','Mengembun','Menyublim','Mengkristal'];
+let selectedEvent=null,selectedTerm=null,matches={},simChecked=false;
+function shuffle(a){let b=a.slice();for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+function startSimulation(){selectedEvent=null;selectedTerm=null;matches={};simChecked=false;document.getElementById('simFeedback').className='feedback';document.getElementById('simProgress').textContent='Pasangan benar: 0 dari 6';renderEvents();renderTerms(shuffle(terms));go('simulasi')}
+function renderEvents(){const root=document.getElementById('eventList');root.innerHTML='';events.forEach(e=>{const b=document.createElement('button');b.className='event-card'+(selectedEvent===e.id?' selected':'');b.dataset.id=e.id;b.innerHTML='<span class="emoji">'+e.emoji+'</span><span><strong>'+e.title+'</strong><small>'+e.desc+'</small><div class="dropzone '+(matches[e.id]?'filled':'')+'" data-drop="'+e.id+'">'+(matches[e.id]||'Seret istilah ke sini / pilih kartu')+'</div></span>';b.onclick=()=>{selectedEvent=e.id;selectedTerm=null;renderEvents();renderTerms();};b.addEventListener('dragover',ev=>ev.preventDefault());b.addEventListener('drop',ev=>{ev.preventDefault();const term=ev.dataTransfer.getData('text/plain');if(term){matches[e.id]=term;selectedEvent=e.id;simChecked=false;renderEvents();renderTerms();}});root.appendChild(b)})}
+function renderTerms(order){const root=document.getElementById('termList');root.innerHTML='';(order||terms).forEach(t=>{const used=Object.values(matches).includes(t);const b=document.createElement('button');b.className='term'+(selectedTerm===t?' selected':'')+(used?' used':'');b.textContent=t;b.draggable=true;b.disabled=used;b.addEventListener('dragstart',ev=>ev.dataTransfer.setData('text/plain',t));b.onclick=()=>{if(!selectedEvent){document.getElementById('simFeedback').innerHTML='Pilih peristiwa di kolom kiri terlebih dahulu.';document.getElementById('simFeedback').className='feedback show try';return}matches[selectedEvent]=t;selectedEvent=null;selectedTerm=null;simChecked=false;renderEvents();renderTerms();};root.appendChild(b)})}
+function checkSimulation(){let count=0;events.forEach(e=>{if(matches[e.id]===e.answer)count++});document.getElementById('simProgress').textContent='Pasangan benar: '+count+' dari 6';const f=document.getElementById('simFeedback');if(Object.keys(matches).length<6){f.innerHTML='Kamu baru memasangkan '+Object.keys(matches).length+' dari 6 peristiwa. Lengkapi semua pasangan, lalu periksa kembali.';f.className='feedback show try';return}simChecked=true;if(count===6){f.innerHTML='<strong>Hebat! Semua pasangan tepat!</strong><br>Kamu sudah mengenali enam perubahan wujud zat. Coba jelaskan satu contoh dengan kata-katamu sendiri.';f.className='feedback show good';speak('Hebat! Semua pasangan tepat.')}else{f.innerHTML='<strong>Skor simulasi: '+count+'/6.</strong><br>Pasangan yang belum tepat bisa kamu ubah. Ingat: mencair adalah padat menjadi cair; membeku adalah cair menjadi padat.';f.className='feedback show try'}renderEvents()}
+const questions=[
+ {image:'🧊 ➜ 💧',q:'Es batu diletakkan di atas meja dan berubah menjadi air. Peristiwa ini disebut …',opts:['Membeku','Mencair','Mengembun'],a:1,why:'Es menerima energi panas dari lingkungan sehingga berubah dari padat menjadi cair.'},
+ {image:'☀️ 👕 💨',q:'Pakaian yang dijemur lama-kelamaan kering karena air pada pakaian …',opts:['Menguap','Membeku','Mengkristal'],a:0,why:'Air pada pakaian menerima energi dan berubah menjadi uap air.'},
+ {image:'🥤 💧',q:'Titik air yang muncul di luar gelas berisi es berasal dari …',opts:['Air di dalam gelas yang merembes','Es yang berubah langsung menjadi gas','Uap air di udara yang berubah menjadi cair'],a:2,why:'Uap air di udara mendingin ketika menyentuh permukaan gelas, lalu mengembun.'}
+];
+let qi=0,qAnswers=[],qChecked=false;
+function startQuiz(){qi=0;qAnswers=[];qChecked=false;document.getElementById('quizPanel').style.display='block';document.getElementById('resultPanel').style.display='none';renderQuestion();go('kuis')}
+function renderQuestion(){const q=questions[qi];document.getElementById('qCounter').textContent='Soal '+(qi+1)+' dari '+questions.length;document.getElementById('qProgress').style.width=((qi+1)/questions.length*100)+'%';document.getElementById('qText').textContent=q.q;document.getElementById('qImage').textContent=q.image;document.getElementById('qFeedback').className='feedback';document.getElementById('qFeedback').textContent='';document.getElementById('qHint').textContent='Pilih satu jawaban.';document.getElementById('qAction').textContent='Periksa Jawaban';document.getElementById('qAction').disabled=false;qChecked=false;const root=document.getElementById('options');root.innerHTML='';q.opts.forEach((o,i)=>{const b=document.createElement('button');b.className='option';b.textContent=String.fromCharCode(65+i)+'. '+o;b.onclick=()=>{if(qChecked)return;qAnswers[qi]=i;[...root.children].forEach(x=>x.classList.remove('selected'));b.classList.add('selected')};root.appendChild(b)})}
+function checkQuestion(){if(!qChecked){if(qAnswers[qi]===undefined){document.getElementById('qHint').textContent='Pilih salah satu jawaban terlebih dahulu.';return}qChecked=true;const q=questions[qi],correct=qAnswers[qi]===q.a;const f=document.getElementById('qFeedback');f.innerHTML='<strong>'+(correct?'Benar!':'Belum tepat.')+'</strong> '+q.why;f.className='feedback show '+(correct?'good':'try');[...document.getElementById('options').children].forEach((b,i)=>{if(i===q.a)b.classList.add('correct');else if(i===qAnswers[qi])b.classList.add('wrong')});document.getElementById('qAction').textContent=qi===questions.length-1?'Lihat Hasil':'Soal Berikutnya';document.getElementById('qHint').textContent='Baca penjelasannya sebelum melanjutkan.';speak((correct?'Benar. ':'Belum tepat. ')+q.why);return}
+ if(qi<questions.length-1){qi++;renderQuestion()}else showResults()}
+function showResults(){const correct=questions.reduce((n,q,i)=>n+(qAnswers[i]===q.a?1:0),0);const score=Math.round(correct/questions.length*100);document.getElementById('quizPanel').style.display='none';document.getElementById('resultPanel').style.display='block';document.getElementById('scoreText').textContent=score;document.getElementById('scoreLabel').textContent=correct+' dari '+questions.length+' jawaban benar';document.getElementById('resultMessage').textContent=score===100?'Luar biasa! Kamu memahami contoh perubahan wujud zat dengan baik.':score>=67?'Bagus! Baca kembali materi yang belum dikuasai, lalu coba lagi.':'Terus berlatih. Pelajari kartu materi dan ulangi kuis agar semakin paham.';speak('Kuis selesai. Skor kamu '+score)}
+go('splash');
+</script>
+</body>
+</html>
